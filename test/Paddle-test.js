@@ -31,4 +31,6 @@ describe ('Paddle', function() {
     assert.equal(paddle.y, 150);
   })
 
+  
+
 })
