@@ -35,4 +35,10 @@ describe ('Ball', function() {
     var ball = new Ball({x:135, y:60, height: 10, width: 50, color: 'red'})
     assert.equal(ball.color, 'red')
   })
+
+  it('should go up', function() {
+    var ball = new Ball({x:135, y:60, height: 10, width: 50, color: 'red'})
+    // call prototype on ball that pushes ball up
+    assert.equal(ball.x, 140)
+  })
 })
