@@ -2,11 +2,32 @@ body {
   width:100vw;
   height:100vh;
   display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #645e64;
+  margin: 0;
+  padding: 0;
 }
 
 canvas {
   border: 2px solid #000;
   margin: 0 auto;
+  background-color: #040204;
+}
+
+nav {
+  height: 100px;
+  background-color: #040204;
+  color: #645e64;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+nav h2 {
+  margin: 0;
+  font-size: 4em;
+  padding: 0 38px;
 }
