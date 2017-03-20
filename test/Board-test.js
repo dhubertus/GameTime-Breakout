@@ -12,13 +12,13 @@ describe('Board', function() {
   })
 
   it('should take a width', function() {
-    var board = new Board({width: 300})
-    assert.equal(board.width, 300)
+    var board = new Board()
+    assert.equal(board.width, 500)
   })
 
   it('should take a height', function() {
-    var board = new Board({width: 400, height: 300})
-    assert.equal(board.height, 300)
+    var board = new Board()
+    assert.equal(board.height, 500)
   })
 
   it('should instantiate a new paddle', function() {
