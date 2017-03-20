@@ -28,9 +28,9 @@ describe ('Paddle', function() {
 
   it('should have set y axis', function () {
     var paddle = new Paddle({heiht: 10, width: 50});
-    assert.equal(paddle.y, 150);
+    assert.equal(paddle.y, 450);
   })
 
-  
+
 
 })
