@@ -31,3 +31,15 @@ nav h2 {
   font-size: 4em;
   padding: 0 38px;
 }
+
+#mute {
+  height:40px;
+  width:40px;
+  align-self: flex-start;
+  margin-left: 20px;
+  margin-top:20px;
+}
+
+#mute:hover {
+
+}
