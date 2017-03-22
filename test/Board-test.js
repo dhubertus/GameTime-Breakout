@@ -4,7 +4,8 @@ var Board = require('../lib/Board')
 describe('Board', function() {
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
-  let board = new Board({ctx: ctx})
+  let board = new Board({ ctx })
+
   it ('should be a function', function() {
     assert.isFunction(Board)
   })
@@ -59,7 +60,7 @@ describe('Board', function() {
     assert.lengthOf(board.block2, 60)
   })
 
-  it('should have an array level 2 blocks, each with width: 50 and height 25', function(){
+  it('should have an array level 2 blocks, each with width: 50 and height 25', function() {
     // var board = new Board({})
     assert.equal(board.block2[0].width, 50)
     assert.equal(board.block2[0].height, 25)
