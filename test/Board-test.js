@@ -1,5 +1,6 @@
 var assert = require('chai').assert
 var Board  = require('../lib/Board')
+var Levels = require('../lib/Levels')
 
 describe('Board', function() {
   const canvas = document.createElement('canvas')
@@ -48,16 +49,19 @@ describe('Board', function() {
 
 
   it('should have an array of level 2 blocks', () => {
-    assert.lengthOf(board.block2, 60)
+    board.block  = new Levels().level2()
+    assert.equal(board.block.length, 60)
   })
 
   it('should have an array level 2 blocks, each with width: 50 and height 25', () => {
-    assert.equal(board.block2[0].width, 50)
-    assert.equal(board.block2[0].height, 25)
+    board.block  = new Levels().level2()
+    assert.equal(board.block[0].width, 50)
+    assert.equal(board.block[0].height, 25)
   })
 
   it('should have an array of blocks for winning', () => {
-    assert.lengthOf(board.block3, 90)
+    board.block = new Levels().winGame()
+    assert.lengthOf(board.block, 90)
   })
 
   it('should start on level one', () => {
@@ -88,11 +92,11 @@ describe('Board methods', () => {
   const ctx    = canvas.getContext('2d')
   let board = new Board({ ctx })
 
-  it('should stop and hide the ball for level 3 if score is >= 120', () => {
+  it('should stop and place ball on paddle for level 3 if score is >= 120', () => {
     board.score = 120
     board.drawBrickLoop()
     assert.equal(board.ball.x, 240)
-    assert.equal(board.ball.y, 250)
+    assert.equal(board.ball.y, 440)
     assert.equal(board.ball.vx, 0)
     assert.equal(board.ball.vy, 0)
   })
@@ -157,12 +161,13 @@ describe('Board methods', () => {
 
   it('should detect collision with level 2 blocks', () => {
     let board = new Board({ ctx })
+
     board.score = 61
     board.ball.x = 25
     board.ball.y = 190
     board.ball.vx = -4
     board.ball.vy = -4
-    board.blockCollisionLevel2()
+    board.blockCollision()
     assert.equal(board.ball.vy, 4)
   })
 
@@ -171,7 +176,7 @@ describe('Board methods', () => {
 
     board.ball.vx = 4
     board.ball.vy = 4
-    board.ball.y = 495
+    board.ball.y = 490
     board.ball.collision()
     assert.equal(board.ball.vy, 0)
     board.lives = 0
