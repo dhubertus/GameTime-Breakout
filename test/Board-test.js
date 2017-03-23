@@ -107,12 +107,16 @@ describe('Board methods', () => {
     assert.equal(board.ball.vy, -6)
   })
 
-  it('should detect collision on the top left corn of paddle', () => {
+  it('should detect collision on the top left corner of paddle', () => {
     let board    = new Board({ ctx })
 
+    board.ball.vy = 4
+    board.ball.vx = 4
     board.ball.x = 225
     board.ball.y = 445
+    assert.equal(board.ball.vy, 4)
     board.paddleCollisionTopLeft()
+    assert.equal(board.ball.vy, -4)
     assert.equal(board.ball.vx, -4)
   })
 
@@ -120,19 +124,62 @@ describe('Board methods', () => {
     let board = new Board({ ctx })
 
     board.ball.vy = 4
+    board.ball.vx = 4
     board.ball.x = 250
     board.ball.y = 445
     board.paddleCollisionTopCenter()
     assert.equal(board.ball.vy, -4)
+    assert.equal(board.ball.vx, 4)
   })
 
   it('should detect collison on the top right corner of the paddle', () => {
     let board = new Board({ ctx })
 
+    board.ball.vy = 4
     board.ball.vx = -4
     board.ball.x  = 268
     board.ball.y  = 448
     board.paddleCollisionTopRight()
     assert.equal(board.ball.vx, 4)
+    assert.equal(board.ball.vx, 4)
+  })
+
+  it('should detect collision with blocks', () => {
+    let board = new Board({ ctx })
+
+    board.ball.x = 25;
+    board.ball.y = 190;
+    board.ball.vx = -4
+    board.ball.vy = -4
+    board.blockCollision()
+    assert.equal(board.ball.vy, 4)
+  })
+
+  it('should detect collision with level 2 blocks', () => {
+    let board = new Board({ ctx })
+    board.score = 61
+    board.ball.x = 25;
+    board.ball.y = 190;
+    board.ball.vx = -4
+    board.ball.vy = -4
+    board.blockCollisionLevel2()
+    assert.equal(board.ball.vy, 4)
+  })
+
+  it('should move ball on gameover', () => {
+    let board = new Board({ ctx })
+
+    board.ball.vx = 4
+    board.ball.vy = 4
+    board.ball.y = 495
+    board.ball.collision()
+    assert.equal(board.ball.vy, 0)
+    board.lives = 0
+    assert.equal(board.lives, 0)
+    board.restartBall()
+    assert.equal(board.ball.x, 240)
+    assert.equal(board.ball.y, 520)
+    assert.equal(board.lives, 101)
+
   })
 })
