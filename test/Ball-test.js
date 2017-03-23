@@ -41,4 +41,17 @@ describe ('Ball', () => {
 
     assert.equal(ball.color, 'red')
   })
+
+  it ('should change direction if ball crosses x axis', () => {
+    let ball = new Ball({x: 135, y: 60, height: 10, width: 50, color: 'red'})
+
+    ball.y = 0
+    ball.vx = -4
+    ball.vy = -4
+    assert.equal(ball.vx, -4)
+    ball.collision()
+    assert.equal(ball.vx, 4)
+
+
+  })
 })
