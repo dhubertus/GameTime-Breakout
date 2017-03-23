@@ -1,57 +1,82 @@
-let assert = require('chai').assert;
-let Ball = require('../lib/Ball');
+let assert = require('chai').assert
+let Ball   = require('../lib/Ball')
 
 describe ('Ball', () => {
+  let ball = new Ball({x: 135, y: 60, height: 10, width: 50, color: 'red'})
   it ('should be function', () => {
-    assert.isFunction(Ball);
+    assert.isFunction(Ball)
   })
 
   it ('should instantiate a new object', () => {
-    let ball = new Ball ({});
-
-    assert.isObject(ball);
+    assert.isObject(ball)
   })
 
   it ('should take height', () => {
-    let ball = new Ball({height: 10});
-
-    assert.equal(ball.height, 10);
+    assert.equal(ball.height, 10)
   })
 
   it ('should take width', () => {
-    let ball = new Ball({height: 10, width: 10});
+    let ball = ({height: 10, width: 10})
 
-    assert.equal(ball.width, 10);
+    assert.equal(ball.width, 10)
   })
 
   it ('should take x axis', () => {
-    let ball = new Ball({x: 135, height: 10, width: 10});
+    let ball = ({x: 135, height: 10, width: 10})
 
-    assert.equal(ball.x, 135);
+    assert.equal(ball.x, 135)
   })
 
-  it ('should have set y axis', () => {
-    let ball = new Ball({x: 135, y: 60, height: 10, width: 50});
+  it ('should take y axis', () => {
+    let ball = ({x: 135, y: 60, height: 10, width: 50})
 
-    assert.equal(ball.y, 60);
+    assert.equal(ball.y, 60)
   })
 
   it ('should take a color', () => {
-    let ball = new Ball({x: 135, y: 60, height: 10, width: 50, color: 'red'})
+    let ball = ({color: 'blue'})
 
-    assert.equal(ball.color, 'red')
+    assert.equal(ball.color, 'blue')
   })
 
-  it ('should change direction if ball crosses x axis', () => {
-    let ball = new Ball({x: 135, y: 60, height: 10, width: 50, color: 'red'})
+  it ('should change direction if ball hits the top of the board', () => {
+    let ball = new Ball({x: 0, y: 1})
 
-    ball.y = 0
-    ball.vx = -4
     ball.vy = -4
-    assert.equal(ball.vx, -4)
+    assert.equal(ball.vy, -4)
+    ball.y = -2
     ball.collision()
-    assert.equal(ball.vx, 4)
+    assert.equal(ball.vy, 4)
+  })
 
+  it('should change direction if it hits the left side of the board', () => {
+    let ball = new Ball({x: 20, y: 0})
 
+    ball.vx = -3
+    assert.equal(ball.vx, -3)
+    ball.x = -2
+    ball.collision()
+    assert.equal(ball.vx, 3)
+  })
+
+  it('should change direction if it hits the right side of the board', () => {
+    let ball = new Ball({x: 490, y: 0})
+
+    ball.vx = 3
+    assert.equal(ball.vx, 3)
+    ball.x = 500
+    ball.collision()
+    assert.equal(ball.vx, -3)
+  })
+
+  it.skip('should stop if it hits the bottom of the board', () => {
+    let ball = new Ball({x: 0, y: 495, height: 10})
+
+    ball.vy = 4
+    ball.vx = -4
+    assert.equal(ball.vy, 4)
+    ball.y = 510
+    ball.collision()
+    assert.equal(ball.vy, 2)
   })
 })

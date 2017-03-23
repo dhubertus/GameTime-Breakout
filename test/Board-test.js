@@ -147,8 +147,8 @@ describe('Board methods', () => {
   it('should detect collision with blocks', () => {
     let board = new Board({ ctx })
 
-    board.ball.x = 25;
-    board.ball.y = 190;
+    board.ball.x = 25
+    board.ball.y = 190
     board.ball.vx = -4
     board.ball.vy = -4
     board.blockCollision()
@@ -158,8 +158,8 @@ describe('Board methods', () => {
   it('should detect collision with level 2 blocks', () => {
     let board = new Board({ ctx })
     board.score = 61
-    board.ball.x = 25;
-    board.ball.y = 190;
+    board.ball.x = 25
+    board.ball.y = 190
     board.ball.vx = -4
     board.ball.vy = -4
     board.blockCollisionLevel2()
