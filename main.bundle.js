@@ -113,10 +113,6 @@
 	    this.lives = 5;
 	    this.ball = new Ball({ x: 240, y: 440, width: 10, height: 10, color: '#bc3654' });
 	    this.context = ctx;
-
-	    this.blockDestroySound = new Audio("../sounds/Explosion6.wav");
-	    this.paddleHitSound = new Audio("../sounds/sfx_sounds_impact13.wav");
-	    this.gameplaySound = new Audio("../sounds/Visager_-_04_-_Factory_Time.mp3");
 	  }
 
 	  drawBrickLoop() {
@@ -152,7 +148,6 @@
 	        this.ball.vy = -this.ball.vy;
 	        this.block.splice(i, 1);
 	        this.changeScoreAndLevel();
-	        this.blockDestroySound.play();
 	      }
 	    }
 	  }
@@ -193,7 +188,6 @@
 
 	      if (this.ball.vx > 0) {
 	        this.ball.vx = -this.ball.vx;
-	        this.paddleHitSound.play();
 	      }
 	    }
 	  }
@@ -201,7 +195,6 @@
 	  paddleCollisionTopCenter() {
 	    if (this.ball.x <= this.paddle.x + 10 + (this.paddle.width - 20) && this.ball.x > this.paddle.x + 10 && this.ball.y < this.paddle.y + this.paddle.height && this.ball.height + this.ball.y > this.paddle.y) {
 	      this.ball.vy = -this.ball.vy;
-	      this.paddleHitSound.play();
 	    }
 	  }
 
@@ -211,7 +204,6 @@
 
 	      if (this.ball.vx < 0) {
 	        this.ball.vx = -this.ball.vx;
-	        this.paddleHitSound.play();
 	      }
 	    }
 	  }
