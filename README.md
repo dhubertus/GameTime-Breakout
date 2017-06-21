@@ -1,8 +1,13 @@
 Hosted on [Github Pages](https://dbull7.github.io/breakout/)
-## Project Name & Pitch
+## GameTime-Breakout
 ## Project Status
-(ie: This project is currently in development. Currently this is the working functionality, next steps include blah blah blah)
-## Project Screen Shot(s)   
+Breakout’s functionality is complete, however I would like to revisit this project to adjust our hit detection between blocks and ball as the collisions can act funny sometimes. I would also like to increase game usability on mobile as to easily play with your thumb.
+
+Our version of Breakout was designed to look like and sound like the original atari version from the 70’s. Unfortunately the sound had to be removed for hosting reasons. 
+
+Hosted on [Github Pages](https://dhubertus.github.io/GameTime-Breakout/)
+## Project Screen Shots
+![logo67](https://user-images.githubusercontent.com/25044263/27405806-435a8008-5690-11e7-8ca0-9dcddb0f0ca3.jpg)
 ## Installation and Setup Instructions
 ie: `git clone, npm start, bower install, etc`  
 ## Reflection
