@@ -1,4 +1,3 @@
-Hosted on [Github Pages](https://dbull7.github.io/breakout/)
 ## GameTime-Breakout
 ## Project Status
 Breakout’s functionality is complete, however I would like to revisit this project to adjust our hit detection between blocks and ball as the collisions can act funny sometimes. I would also like to increase game usability on mobile as to easily play with your thumb.
