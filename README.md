@@ -7,20 +7,16 @@ Our version of Breakout was designed to look like and sound like the original at
 
 Hosted on [Github Pages](https://dhubertus.github.io/GameTime-Breakout/)
 ## Project Screen Shots
+### Breakout - Our Version
+<img width="1071" alt="breakout copy" src="https://user-images.githubusercontent.com/25044263/27405866-6dca9828-5690-11e7-8eee-5bf8be3a4ee1.png">
+
+### Breakout - 1970s Version
 ![logo67](https://user-images.githubusercontent.com/25044263/27405806-435a8008-5690-11e7-8ca0-9dcddb0f0ca3.jpg)
+
 ## Installation and Setup Instructions
-ie: `git clone, npm start, bower install, etc`  
+git clone --> npm install --> npm start
+
 ## Reflection
-  - What was the context for this project? (ie: was this a side project? was this for Turing? was this for an experiment?)
-  - What did you set out to build?
-  - Why was this project challenging and therefore a really good learning experience?
-  - What were some unexpected obstacles?
-  - What tools did you use to implement this project?
-      - This might seem obvious because you are IN this codebase, but to all other humans now is the time to talk about why you chose webpack instead of create react app, or D3, or vanilla JS instead of a framework etc. Brag about your choices and justify them here.  
-<!-- #### Example:  
-This was a 3 week long project built during my third module at Turing School of Software and Design. Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.  
-Originally I wanted to build an application that allowed users to pull data from the Twitter API based on what they were interested in, such as 'most tagged users'. I started this process by using the `create-react-app` boilerplate, then adding `react-router-4.0` and `redux`.  
-One of the main challenges I ran into was Authentication. This lead me to spend a few days on a research spike into OAuth, Auth0, and two-factor authentication using Firebase or other third parties. Due to project time constraints, I had to table authentication and focus more on data visualization from parts of the API that weren't restricted to authenticated users.
-At the end of the day, the technologies implemented in this project are React, React-Router 4.0, Redux, LoDash, D3, and a significant amount of VanillaJS, JSX, and CSS. I chose to use the `create-react-app` boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration I plan on handrolling a `webpack.config.js` file to more fully understand the build process. -->
-## Resources
-  Link to any additional resources you used, giving credit to any other codebases or technologies you pulled from the internet.  
+The goal when building Breakout was to build a game that is playable in the browser using HTML5 Canvas. Additionally we were to use design patterns to drive implementation of code, separate business-logic code from view-related code, and to use TDD while building out the application. The game of choice was to be full-featured and playable with sufficient UX allowing to user to fully interact with the game.
+ 
+The most difficult part of developing Breakout was learning to use Canvas and mapping out how to organize code/divvy up responsibility. Writing tests for Breakout was also a challenge, but forced you to have a firm grasp of exactly what you were trying to test and how you app works to produce the matching environment to that you are trying to test. 
